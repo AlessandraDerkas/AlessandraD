@@ -43,5 +43,4 @@ function calculaTempo(tempoObjetivo){
     }else {
         return "Prazo Finalizado";
     }
-
 }
