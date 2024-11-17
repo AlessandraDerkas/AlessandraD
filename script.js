@@ -2,7 +2,7 @@ let cart = [];
 let total = 0;
 
 function navigate(section) {
-  document.querySelectorAll('main').forEach((el) => el.classList.add('hidden-section'));
+  document.querySelectorAll('section').forEach((el) => el.classList.add('hidden-section'));
   document.getElementById(section).classList.remove('hidden-section');
 }
 

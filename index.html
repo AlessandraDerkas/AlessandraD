@@ -11,11 +11,13 @@
     <h1>Padoca da Gabi</h1>
     <nav>
       <button onclick="navigate('home')">Início</button>
+      <button onclick="navigate('catalog')">Catálogo</button>
+      <button onclick="navigate('cart')">Carrinho</button>
     </nav>
   </header>
 
   <!-- Seção Inicial -->
-  <main id="home" class="active-section">
+  <section id="home" class="active-section">
     <div class="slideshow">
       <img src="https://via.placeholder.com/800x300?text=Bem+vindo+à+Padoca+da+Gabi" alt="Bem-vindo">
       <img src="https://via.placeholder.com/800x300?text=Doces+e+Salgados+feitos+com+amor" alt="Doces e Salgados">
@@ -24,7 +26,7 @@
       <p>Bem-vindo à Padoca da Gabi! Aqui, você encontra os melhores doces e salgados feitos com carinho. Explore nosso catálogo e faça seu pedido!</p>
       <input type="text" id="search" placeholder="Busque por produtos..." oninput="searchProducts()">
     </section>
-  </main>
+  </section>
   <script src="script.js"></script>
 </body>
 </html>
