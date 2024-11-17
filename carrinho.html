@@ -4,14 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>Padoca da Gabi</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Catálogo</a>
+        </nav>
+    </header>
+
     <!-- Seção do Carrinho -->
-<section id="cart" class="hidden-section">
+<main>
     <h2>Seu Carrinho</h2>
     <div id="cart-items"></div>
     <p><strong>Total: R$ <span id="total">0.00</span></strong></p>
     <button onclick="clearCart()">Limpar Carrinho</button>
-</section>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

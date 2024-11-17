@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Produtos</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>Padoca da Gabi</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="carrinho.html">Carrinho</a>
+        </nav>
+    </header>
     <!-- Seção de Catálogo -->
-<section id="catalog" class="hidden-section">
+<main>
     <h2>Catálogo de Produtos</h2>
     <div class="products">
       <div class="product" data-name="Pão Francês" data-category="salgados">
@@ -35,6 +43,8 @@
         <button onclick="addToCart('Coxinha', 8.00)">Adicionar</button>
       </div>
     </div>
-</section>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,22 +1,21 @@
-let cart = [];
-let total = 0;
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let total = cart.reduce((sum, item) => sum + item.price, 0);
 
-function navigate(section) {
-  document.querySelectorAll('section').forEach((el) => el.classList.add('hidden-section'));
-  document.getElementById(section).classList.remove('hidden-section');
-}
-
+// Adiciona produto ao carrinho
 function addToCart(name, price) {
   cart.push({ name, price });
-  total += price;
-  updateCart();
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(`${name} foi adicionado ao carrinho!`);
 }
 
+// Atualiza o carrinho na página de Carrinho
 function updateCart() {
   const cartItems = document.getElementById('cart-items');
   const totalElement = document.getElementById('total');
-  cartItems.innerHTML = '';
+  
+  if (!cartItems) return;
 
+  cartItems.innerHTML = '';
   cart.forEach((item, index) => {
     const div = document.createElement('div');
     div.innerHTML = `<span>${item.name} - R$ ${item.price.toFixed(2)}</span>
@@ -24,25 +23,22 @@ function updateCart() {
     cartItems.appendChild(div);
   });
 
-  totalElement.textContent = total.toFixed(2);
+  totalElement.textContent = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
 }
 
+// Remove produto do carrinho
 function removeFromCart(index) {
-  total -= cart[index].price;
   cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
   updateCart();
 }
 
+// Limpa o carrinho
 function clearCart() {
   cart = [];
-  total = 0;
+  localStorage.removeItem('cart');
   updateCart();
 }
 
-function searchProducts() {
-  const searchTerm = document.getElementById('search').value.toLowerCase();
-  document.querySelectorAll('.product').forEach((product) => {
-    const name = product.dataset.name.toLowerCase();
-    product.style.display = name.includes(searchTerm) ? 'block' : 'none';
-  });
-}
+// Atualiza a página do carrinho ao carregá-la
+document.addEventListener('DOMContentLoaded', updateCart);
