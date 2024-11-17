@@ -1,115 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus objetivos do ano</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Padoca da Gabi</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <section class="conteudo-principal"></section>
-    <h2 class="titulo-principal">Meus objetivos do ano<span>_</span></h2>
-    <div class="conteudo">
-    <div class="botoes">
-     <button class="botao ativo">Cursos na Alura</button>
-     <button class="botao">Criar projetos em JavaScript</button>
-     <button class="botao">Criar um portfólio</button>
-     <button class="botao">Atualizar meu currículo</button>
+  <header>
+    <h1>Padoca da Gabi</h1>
+    <nav>
+      <button onclick="navigate('home')">Início</button>
+      <button onclick="navigate('catalog')">Catálogo</button>
+      <button onclick="navigate('cart')">Carrinho</button>
+    </nav>
+  </header>
+
+  <!-- Seção Inicial -->
+  <main id="home" class="active-section">
+    <div class="slideshow">
+      <img src="https://via.placeholder.com/800x300?text=Bem+vindo+à+Padoca+da+Gabi" alt="Bem-vindo">
+      <img src="https://via.placeholder.com/800x300?text=Doces+e+Salgados+feitos+com+amor" alt="Doces e Salgados">
     </div>
-    <div class="abas-textos">
-     <div class="aba-conteudo ativo">
-         <h3 class="aba-conteudo-titulo-principal">Estudar 4 cursos na Alura</h3>
-         <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
-         <div class="contador">
-            <div class="contador-digito">
-                <p class="contador-digito-numero" id="dias0"></p>
-                <p class="contador-digito-texto">dias</p>
-            </div>
-            <div class="contador-digito">
-                <p class="contador-digito-numero" id="horas0"></p>
-                <p class="contador-digito-texto">horas</p>
-            </div>
-            <div class="contador-digito">
-                <p class="contador-digito-numero" id="min0"></p>
-                <p class="contador-digito-texto">min</p>
-            </div>
-            <div class="contador-digito">
-                <p class="contador-digito-numero" id="seg0"></p>
-                <p class="contador-digito-texto">seg</p>
-            </div>
-        </div>
-     </div>
-     <div class="aba-conteudo"> 
-         <h3 class="aba-conteudo-titulo-principal">Criar 5 projetos em JavaScript</h3>
-         <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
-         <div class="contador">
-             <div class="contador-digito">
-                 <p class="contador-digito-numero" id="dias1"></p>
-                 <p class="contador-digito-texto">dias</p>
-             </div>
-             <div class="contador-digito">
-                 <p class="contador-digito-numero" id="horas1"></p>
-                 <p class="contador-digito-texto">horas</p>
-             </div>
-             <div class="contador-digito">
-                 <p class="contador-digito-numero" id="min1"></p>
-                 <p class="contador-digito-texto">min</p>
-             </div>
-             <div class="contador-digito">
-                 <p class="contador-digito-numero" id="seg1"></p>
-                 <p class="contador-digito-texto">seg</p>
-             </div>
-         </div>
-         </div>
-     </div>
-     <div class="aba-conteudo">
-        <h3 class="aba-conteudo-titulo-principal">Criar um portfólio com os meus 3 melhores projetos</h3>
-        <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
-        <div class="contador">
-            <div class="contador-digito">
-                <p class="contador-digito-numero" id="dias2"></p>
-                <p class="contador-digito-texto">dias</p>
-            </div>
-            <div class="contador-digito">
-                <p class="contador-digito-numero" id="horas2"></p>
-                <p class="contador-digito-texto">horas</p>
-            </div>
-            <div class="contador-digito">
-                <p class="contador-digito-numero" id="min2"></p>
-                <p class="contador-digito-texto">min</p>
-            </div>
-            <div class="contador-digito">
-                <p class="contador-digito-numero" id="seg2"></p>
-                <p class="contador-digito-texto">seg</p>
-            </div>
-        </div>
-        </div>
+    <section class="description">
+      <p>Bem-vindo à Padoca da Gabi! Aqui, você encontra os melhores doces e salgados feitos com carinho. Explore nosso catálogo e faça seu pedido!</p>
+      <input type="text" id="search" placeholder="Busque por produtos..." oninput="searchProducts()">
+    </section>
+  </main>
+
+  <!-- Seção de Catálogo -->
+  <main id="catalog" class="hidden-section">
+    <h2>Catálogo de Produtos</h2>
+    <div class="products">
+      <div class="product" data-name="Pão Francês" data-category="salgados">
+        <img src="https://via.placeholder.com/150" alt="Pão Francês">
+        <h3>Pão Francês</h3>
+        <p>R$ 1,00</p>
+        <button onclick="addToCart('Pão Francês', 1.00)">Adicionar</button>
+      </div>
+      <div class="product" data-name="Croissant" data-category="salgados">
+        <img src="https://via.placeholder.com/150" alt="Croissant">
+        <h3>Croissant</h3>
+        <p>R$ 5,00</p>
+        <button onclick="addToCart('Croissant', 5.00)">Adicionar</button>
+      </div>
+      <div class="product" data-name="Brigadeiro" data-category="doces">
+        <img src="https://via.placeholder.com/150" alt="Brigadeiro">
+        <h3>Brigadeiro</h3>
+        <p>R$ 2,00</p>
+        <button onclick="addToCart('Brigadeiro', 2.00)">Adicionar</button>
+      </div>
+      <div class="product" data-name="Torta de Limão" data-category="doces">
+        <img src="https://via.placeholder.com/150" alt="Torta de Limão">
+        <h3>Torta de Limão</h3>
+        <p>R$ 10,00</p>
+        <button onclick="addToCart('Torta de Limão', 10.00)">Adicionar</button>
+      </div>
     </div>
-     <div class="aba-conteudo">
-        <h3 class="aba-conteudo-titulo-principal">Atualizar meu curriculo com os certificados da alura</h3>
-        <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
-        <div class="contador">
-            <div class="contador-digito">
-                <p class="contador-digito-numero" id="dias3"></p>
-                <p class="contador-digito-texto">dias</p>
-            </div>
-            <div class="contador-digito">
-                <p class="contador-digito-numero" id="horas3"></p>
-                <p class="contador-digito-texto">horas</p>
-            </div>
-            <div class="contador-digito">
-                <p class="contador-digito-numero" id="min3"></p>
-                <p class="contador-digito-texto">min</p>
-            </div>
-            <div class="contador-digito">
-                <p class="contador-digito-numero" id="seg3"></p>
-                <p class="contador-digito-texto">seg</p>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-    </div>
-    <script src="main.js"></script>
+  </main>
+
+  <!-- Seção do Carrinho -->
+  <main id="cart" class="hidden-section">
+    <h2>Seu Carrinho</h2>
+    <div id="cart-items"></div>
+    <p><strong>Total: R$ <span id="total">0.00</span></strong></p>
+    <button onclick="clearCart()">Limpar Carrinho</button>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
